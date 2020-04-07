@@ -1,7 +1,7 @@
 '''
 Created on Apr 7, 2020
-
-@author: Diwakar
+Unit Testing code for the calculator.py file
+@author: Balaji
 '''
 import unittest
 from UnitTesting.calculator import Calculator
