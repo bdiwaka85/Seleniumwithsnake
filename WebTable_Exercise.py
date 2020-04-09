@@ -7,6 +7,10 @@ This program opens the given website logs in as Admin, navigates to the  page th
 import unittest
 from selenium import webdriver
 from selenium.webdriver import ActionChains
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as ec
+from selenium.webdriver.common.by import By
+
 
 class test_webtable(unittest.TestCase):
     
@@ -33,6 +37,9 @@ class test_webtable(unittest.TestCase):
         self.browser.find_element_by_id("txtUsername").send_keys("Admin")
         self.browser.find_element_by_id("txtPassword").send_keys("admin123")
         self.browser.find_element_by_xpath("//input[@id='btnLogin']").click()
+#wait till website loads
+        wait = WebDriverWait(self.browser, 2)
+        wait.until(ec.element_to_be_clickable((By.ID, 'menu_time_viewTimeModule')))
 #navigate using mousehover
         time = self.browser.find_element_by_xpath("//*[@id='menu_time_viewTimeModule']")
         reports = self.browser.find_element_by_xpath("//*[@id='menu_time_Reports']")
